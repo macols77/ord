@@ -52,7 +52,7 @@ impl Rune {
         Network::Regtest => 0,
         Network::Signet => 0,
         Network::Testnet(TestnetVersion::V3) => 12,
-        Network::Testnet(TestnetVersion::V4) => 4,
+        Network::Testnet(TestnetVersion::V4) => 0,
         _ => 0,
       }
   }
@@ -344,7 +344,7 @@ mod tests {
       "ZZYZXBRKWXVA",
     );
     case(
-      Network::Testnet(TestnetVersion::V3),
+      Network::Testnet,
       SUBSIDY_HALVING_INTERVAL * 12 + 1,
       "ZZXZUDIVTVQA",
     );

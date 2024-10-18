@@ -67,7 +67,7 @@ impl WalletConstructor {
       client
     };
 
-    let chain_block_count = bitcoin_client.get_block_count().unwrap() + 1;
+    let chain_block_count = bitcoin_client.get_block_count().unwrap();
 
     if !self.no_sync {
       for i in 0.. {

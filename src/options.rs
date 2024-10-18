@@ -71,6 +71,11 @@ pub struct Options {
   pub(crate) no_index_inscriptions: bool,
   #[arg(
     long,
+    help = "Set server URL to <SERVER_URL>."
+  )]
+  pub(crate) server_url: Option<String>,
+  #[arg(
+    long,
     help = "Require basic HTTP authentication with <SERVER_PASSWORD>. Credentials are sent in cleartext. Consider using authentication in conjunction with HTTPS."
   )]
   pub(crate) server_password: Option<String>,
