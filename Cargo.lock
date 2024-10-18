@@ -449,8 +449,6 @@ dependencies = [
 [[package]]
 name = "base58ck"
 version = "0.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2c8d66485a3a2ea485c1913c4572ce0256067a5377ac8c75c4960e1cda98605f"
 dependencies = [
  "bitcoin-internals 0.3.0",
  "bitcoin_hashes 0.14.0",
@@ -528,8 +526,6 @@ dependencies = [
 [[package]]
 name = "bitcoin"
 version = "0.32.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0032b0e8ead7074cda7fc4f034409607e3f03a6f71d66ade8a307f79b4d99e73"
 dependencies = [
  "base58ck",
  "bech32 0.11.0",
@@ -552,8 +548,6 @@ checksum = "9425c3bf7089c983facbae04de54513cce73b41c7f9ff8c845b54e7bc64ebbfb"
 [[package]]
 name = "bitcoin-internals"
 version = "0.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "30bdbe14aa07b06e6cfeffc529a1f099e5fbe249524f8125358604df99a4bed2"
 dependencies = [
  "serde",
 ]
@@ -561,8 +555,6 @@ dependencies = [
 [[package]]
 name = "bitcoin-io"
 version = "0.1.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "340e09e8399c7bd8912f495af6aa58bea0c9214773417ffaa8f6460f93aaee56"
 
 [[package]]
 name = "bitcoin-units"
@@ -587,8 +579,6 @@ dependencies = [
 [[package]]
 name = "bitcoin_hashes"
 version = "0.14.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bb18c03d0db0247e147a21a6faafd5a7eb851c743db062de72018b6b7e8e4d16"
 dependencies = [
  "bitcoin-io",
  "hex-conservative 0.2.1",
@@ -4481,3 +4471,7 @@ name = "zeroize"
 version = "1.8.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ced3678a2879b30306d323f4542626697a464a97c0a07c9aebf7ebca65cd4dde"
+
+[[patch.unused]]
+name = "bitcoin-units"
+version = "0.1.1"

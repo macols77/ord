@@ -17,6 +17,25 @@ maintainer = "The Ord Maintainers"
 [workspace]
 members = [".", "crates/*"]
 
+
+[patch.crates-io.base58ck]
+path = "../rust-bitcoin/base58"
+
+[patch.crates-io.bitcoin]
+path = "../rust-bitcoin/bitcoin"
+
+[patch.crates-io.bitcoin_hashes]
+path = "../rust-bitcoin/hashes"
+
+[patch.crates-io.bitcoin-internals]
+path = "../rust-bitcoin/internals"
+
+[patch.crates-io.bitcoin-io]
+path = "../rust-bitcoin/io"
+
+[patch.crates-io.bitcoin-units]
+path = "../rust-bitcoin/units"
+
 [dependencies]
 anyhow = { version = "1.0.56", features = ["backtrace"] }
 async-trait = "0.1.72"

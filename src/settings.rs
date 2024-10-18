@@ -156,6 +156,7 @@ impl Settings {
         .then_some(Chain::Signet)
         .or(options.regtest.then_some(Chain::Regtest))
         .or(options.testnet.then_some(Chain::Testnet))
+        .or(options.testnet4.then_some(Chain::Testnet4))
         .or(options.chain_argument),
       commit_interval: options.commit_interval,
       config: options.config,
@@ -432,6 +433,7 @@ impl Settings {
           break match blockchain_info.chain.to_string().as_str() {
             "bitcoin" => Chain::Mainnet,
             "testnet" => Chain::Testnet,
+            "testnet4" => Chain::Testnet4,
             "regtest" => Chain::Regtest,
             "signet" => Chain::Signet,
             other => bail!("Bitcoin RPC server on unknown chain: {other}"),
@@ -439,7 +441,9 @@ impl Settings {
         }
         Err(bitcoincore_rpc::Error::JsonRpc(bitcoincore_rpc::jsonrpc::Error::Rpc(err)))
           if err.code == -28 => {}
-        Err(err) => bail!("Failed to connect to Bitcoin Core RPC at `{rpc_url}`:  {err}"),
+        Err(err) => {
+          bail!("Failed to connect to Bitcoin Core RPC at `{rpc_url}`: {err}");
+        }
       }
 
       ensure! {
@@ -565,7 +569,7 @@ impl Settings {
     let base_url = self.bitcoin_rpc_url.as_ref().unwrap();
     match wallet_name {
       Some(wallet_name) => format!("{base_url}/wallet/{wallet_name}"),
-      None => format!("{base_url}/"),
+      None => format!("{base_url}"),
     }
   }
 
@@ -580,7 +584,9 @@ impl Settings {
 
 #[cfg(test)]
 mod tests {
-  use super::*;
+  use bitcoin::TestnetVersion;
+
+use super::*;
 
   fn parse(args: &[&str]) -> Settings {
     let args = iter::once("ord")
@@ -672,7 +678,7 @@ mod tests {
 
   #[test]
   fn rpc_server_chain_must_match() {
-    let core = mockcore::builder().network(Network::Testnet).build();
+    let core = mockcore::builder().network(Network::Testnet(TestnetVersion::V3)).build();
 
     let settings = parse(&[
       "--cookie-file",

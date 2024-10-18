@@ -722,7 +722,7 @@ impl TransactionBuilder {
 
 #[cfg(test)]
 mod tests {
-  use {super::Error, super::*};
+  use {super::{Error, *}, bitcoin::TestnetVersion};
 
   #[test]
   fn select_sat() {
@@ -742,7 +742,7 @@ mod tests {
       [change(0), change(1)],
       FeeRate::try_from(1.0).unwrap(),
       Target::Postage,
-      Network::Testnet,
+      Network::Testnet(TestnetVersion::V3),
     )
     .select_outgoing()
     .unwrap();
@@ -796,7 +796,7 @@ mod tests {
         },
       ],
       target: Target::Postage,
-      network: Network::Testnet,
+      network: Network::Testnet(TestnetVersion::V3),
     };
 
     pretty_assert_eq!(
@@ -828,7 +828,7 @@ mod tests {
       [change(0), change(1)],
       FeeRate::try_from(1.0).unwrap(),
       Target::Postage,
-      Network::Testnet,
+      Network::Testnet(TestnetVersion::V3),
     )
     .build_transaction()
     .unwrap()
@@ -850,7 +850,7 @@ mod tests {
         [change(0), change(1)],
         FeeRate::try_from(1.0).unwrap(),
         Target::Postage,
-        Network::Testnet,
+        Network::Testnet(TestnetVersion::V3),
       )
       .build_transaction(),
       Ok(Transaction {
@@ -877,7 +877,7 @@ mod tests {
       [change(0), change(1)],
       FeeRate::try_from(1.0).unwrap(),
       Target::Postage,
-      Network::Testnet,
+      Network::Testnet(TestnetVersion::V3),
     )
     .select_outgoing()
     .unwrap()
@@ -904,7 +904,7 @@ mod tests {
         [change(0), change(1)],
         FeeRate::try_from(1.0).unwrap(),
         Target::Postage,
-        Network::Testnet,
+        Network::Testnet(TestnetVersion::V3),
       )
       .build_transaction(),
       Ok(Transaction {
@@ -931,7 +931,7 @@ mod tests {
         [change(0), change(1)],
         FeeRate::try_from(1.0).unwrap(),
         Target::Postage,
-        Network::Testnet,
+        Network::Testnet(TestnetVersion::V3),
       )
       .build_transaction(),
       Err(Error::NotEnoughCardinalUtxos),
@@ -956,7 +956,7 @@ mod tests {
         [change(0), change(1)],
         FeeRate::try_from(1.0).unwrap(),
         Target::Postage,
-        Network::Testnet,
+        Network::Testnet(TestnetVersion::V3),
       )
       .build_transaction(),
       Err(Error::NotEnoughCardinalUtxos),
@@ -981,7 +981,7 @@ mod tests {
         [change(0), change(1)],
         FeeRate::try_from(1.0).unwrap(),
         Target::Postage,
-        Network::Testnet,
+        Network::Testnet(TestnetVersion::V3),
       )
       .build_transaction(),
       Ok(Transaction {
@@ -1012,7 +1012,7 @@ mod tests {
       [change(0), change(1)],
       FeeRate::try_from(1.0).unwrap(),
       Target::Postage,
-      Network::Testnet,
+      Network::Testnet(TestnetVersion::V3),
     )
     .build()
     .unwrap();
@@ -1033,7 +1033,7 @@ mod tests {
       [change(0), change(1)],
       FeeRate::try_from(1.0).unwrap(),
       Target::Postage,
-      Network::Testnet,
+      Network::Testnet(TestnetVersion::V3),
     )
     .build()
     .unwrap();
@@ -1054,7 +1054,7 @@ mod tests {
       [change(0), change(1)],
       FeeRate::try_from(1.0).unwrap(),
       Target::Postage,
-      Network::Testnet,
+      Network::Testnet(TestnetVersion::V3),
     )
     .build()
     .unwrap();
@@ -1075,7 +1075,7 @@ mod tests {
       [change(0), change(1)],
       FeeRate::try_from(1.0).unwrap(),
       Target::Postage,
-      Network::Testnet,
+      Network::Testnet(TestnetVersion::V3),
     )
     .select_outgoing()
     .unwrap();
@@ -1104,7 +1104,7 @@ mod tests {
       [change(0), change(1)],
       FeeRate::try_from(1.0).unwrap(),
       Target::Postage,
-      Network::Testnet,
+      Network::Testnet(TestnetVersion::V3),
     )
     .select_outgoing()
     .unwrap();
@@ -1129,7 +1129,7 @@ mod tests {
         [change(0), change(1)],
         FeeRate::try_from(1.0).unwrap(),
         Target::Postage,
-        Network::Testnet,
+        Network::Testnet(TestnetVersion::V3),
       )
       .build_transaction(),
       Ok(Transaction {
@@ -1159,7 +1159,7 @@ mod tests {
       [change(0), change(1)],
       FeeRate::try_from(1.0).unwrap(),
       Target::Postage,
-      Network::Testnet,
+      Network::Testnet(TestnetVersion::V3),
     )
     .select_outgoing()
     .unwrap()
@@ -1182,7 +1182,7 @@ mod tests {
         [change(0), change(1)],
         FeeRate::try_from(1.0).unwrap(),
         Target::Postage,
-        Network::Testnet,
+        Network::Testnet(TestnetVersion::V3),
       )
       .build_transaction(),
       Ok(Transaction {
@@ -1212,7 +1212,7 @@ mod tests {
         [change(0), change(1)],
         FeeRate::try_from(1.0).unwrap(),
         Target::Postage,
-        Network::Testnet,
+        Network::Testnet(TestnetVersion::V3),
       )
       .build_transaction(),
       Ok(Transaction {
@@ -1242,7 +1242,7 @@ mod tests {
       [change(0), change(1)],
       FeeRate::try_from(1.0).unwrap(),
       Target::Postage,
-      Network::Testnet,
+      Network::Testnet(TestnetVersion::V3),
     )
     .select_outgoing()
     .unwrap()
@@ -1272,7 +1272,7 @@ mod tests {
       [change(0), change(1)],
       FeeRate::try_from(1.0).unwrap(),
       Target::Postage,
-      Network::Testnet,
+      Network::Testnet(TestnetVersion::V3),
     )
     .select_outgoing()
     .unwrap()
@@ -1300,7 +1300,7 @@ mod tests {
       [change(0), change(1)],
       FeeRate::try_from(1.0).unwrap(),
       Target::Postage,
-      Network::Testnet,
+      Network::Testnet(TestnetVersion::V3),
     )
     .select_outgoing()
     .unwrap()
@@ -1325,7 +1325,7 @@ mod tests {
       [change(0), change(1)],
       FeeRate::try_from(1.0).unwrap(),
       Target::Postage,
-      Network::Testnet,
+      Network::Testnet(TestnetVersion::V3),
     )
     .select_outgoing()
     .unwrap()
@@ -1369,7 +1369,7 @@ mod tests {
         },
       ],
       target: Target::Postage,
-      network: Network::Testnet,
+      network: Network::Testnet(TestnetVersion::V3),
     }
     .build()
     .unwrap();
@@ -1410,7 +1410,7 @@ mod tests {
         },
       ],
       target: Target::Postage,
-      network: Network::Testnet,
+      network: Network::Testnet(TestnetVersion::V3),
     }
     .build()
     .unwrap();
@@ -1434,7 +1434,7 @@ mod tests {
         [change(0), change(1)],
         FeeRate::try_from(1.0).unwrap(),
         Target::Postage,
-        Network::Testnet,
+        Network::Testnet(TestnetVersion::V3),
       )
       .build_transaction(),
       Err(Error::NotEnoughCardinalUtxos)
@@ -1459,7 +1459,7 @@ mod tests {
         [change(0), change(1)],
         FeeRate::try_from(1.0).unwrap(),
         Target::Postage,
-        Network::Testnet,
+        Network::Testnet(TestnetVersion::V3),
       )
       .build_transaction(),
       Err(Error::NotEnoughCardinalUtxos)
@@ -1481,7 +1481,7 @@ mod tests {
         [change(0), change(1)],
         FeeRate::try_from(1.0).unwrap(),
         Target::Postage,
-        Network::Testnet,
+        Network::Testnet(TestnetVersion::V3),
       )
       .build_transaction(),
       Err(Error::UtxoContainsAdditionalInscriptions {
@@ -1508,7 +1508,7 @@ mod tests {
       [change(0), change(1)],
       fee_rate,
       Target::Postage,
-      Network::Testnet,
+      Network::Testnet(TestnetVersion::V3),
     )
     .build_transaction()
     .unwrap();
@@ -1542,7 +1542,7 @@ mod tests {
         [change(0), change(1)],
         FeeRate::try_from(1.0).unwrap(),
         Target::Value(Amount::from_sat(1000)),
-        Network::Testnet,
+        Network::Testnet(TestnetVersion::V3),
       )
       .build_transaction(),
       Ok(Transaction {
@@ -1572,7 +1572,7 @@ mod tests {
         [change(0), change(1)],
         FeeRate::try_from(1.0).unwrap(),
         Target::Value(Amount::from_sat(1500)),
-        Network::Testnet,
+        Network::Testnet(TestnetVersion::V3),
       )
       .build_transaction(),
       Ok(Transaction {
@@ -1599,7 +1599,7 @@ mod tests {
         [change(0), change(1)],
         FeeRate::try_from(1.0).unwrap(),
         Target::Value(Amount::from_sat(1)),
-        Network::Testnet,
+        Network::Testnet(TestnetVersion::V3),
       )
       .build_transaction(),
       Err(Error::Dust {
@@ -1627,7 +1627,7 @@ mod tests {
         [change(0), change(1)],
         FeeRate::try_from(1.0).unwrap(),
         Target::Value(Amount::from_sat(1000)),
-        Network::Testnet,
+        Network::Testnet(TestnetVersion::V3),
       )
       .build_transaction(),
       Err(Error::NotEnoughCardinalUtxos),
@@ -1652,7 +1652,7 @@ mod tests {
         [change(0), change(1)],
         FeeRate::try_from(4.0).unwrap(),
         Target::Value(Amount::from_sat(1000)),
-        Network::Testnet,
+        Network::Testnet(TestnetVersion::V3),
       )
       .build_transaction(),
       Err(Error::NotEnoughCardinalUtxos),
@@ -1698,7 +1698,7 @@ mod tests {
         [change(0), change(1)],
         FeeRate::try_from(1.0).unwrap(),
         Target::Value(Amount::from_sat(707)),
-        Network::Testnet,
+        Network::Testnet(TestnetVersion::V3),
       )
       .build_transaction(),
       Ok(Transaction {
@@ -1725,7 +1725,7 @@ mod tests {
         [change(0), change(1)],
         FeeRate::try_from(1.0).unwrap(),
         Target::Postage,
-        Network::Testnet,
+        Network::Testnet(TestnetVersion::V3),
       )
       .build_transaction(),
       Ok(Transaction {
@@ -1752,7 +1752,7 @@ mod tests {
         [change(0), change(1)],
         FeeRate::try_from(5.0).unwrap(),
         Target::Value(Amount::from_sat(1000)),
-        Network::Testnet,
+        Network::Testnet(TestnetVersion::V3),
       )
       .build_transaction(),
       Ok(Transaction {
@@ -1779,7 +1779,7 @@ mod tests {
         [change(0), change(1)],
         FeeRate::try_from(6.0).unwrap(),
         Target::Value(Amount::from_sat(1000)),
-        Network::Testnet,
+        Network::Testnet(TestnetVersion::V3),
       )
       .build_transaction(),
       Err(Error::NotEnoughCardinalUtxos)
@@ -1801,7 +1801,7 @@ mod tests {
         [recipient_address(), change(1)],
         FeeRate::try_from(0.0).unwrap(),
         Target::Value(Amount::from_sat(1000)),
-        Network::Testnet,
+        Network::Testnet(TestnetVersion::V3),
       )
       .build_transaction(),
       Err(Error::DuplicateAddress(recipient_address()))
@@ -1823,7 +1823,7 @@ mod tests {
         [change(0), change(0)],
         FeeRate::try_from(0.0).unwrap(),
         Target::Value(Amount::from_sat(1000)),
-        Network::Testnet,
+        Network::Testnet(TestnetVersion::V3),
       )
       .build_transaction(),
       Err(Error::DuplicateAddress(change(0)))
@@ -1845,7 +1845,7 @@ mod tests {
         [change(0), change(1)],
         FeeRate::try_from(2.0).unwrap(),
         Target::Value(Amount::from_sat(1500)),
-        Network::Testnet,
+        Network::Testnet(TestnetVersion::V3),
       )
       .build_transaction(),
       Ok(Transaction {
@@ -1872,7 +1872,7 @@ mod tests {
         [change(0), change(1)],
         FeeRate::try_from(250.0).unwrap(),
         Target::Postage,
-        Network::Testnet,
+        Network::Testnet(TestnetVersion::V3),
       )
       .build_transaction(),
       Ok(Transaction {
@@ -1905,7 +1905,7 @@ mod tests {
       [change(0), change(1)],
       FeeRate::try_from(1.0).unwrap(),
       Target::Value(Amount::from_sat(10_000)),
-      Network::Testnet,
+      Network::Testnet(TestnetVersion::V3),
     )
     .select_outgoing()
     .unwrap()
@@ -1955,7 +1955,7 @@ mod tests {
       [change(0), change(1)],
       FeeRate::try_from(1.0).unwrap(),
       Target::Value(Amount::from_sat(10_000)),
-      Network::Testnet,
+      Network::Testnet(TestnetVersion::V3),
     )
     .select_outgoing()
     .unwrap()
@@ -2015,7 +2015,7 @@ mod tests {
       [change(0), change(1)],
       FeeRate::try_from(1.0).unwrap(),
       Target::Value(Amount::from_sat(10_000)),
-      Network::Testnet,
+      Network::Testnet(TestnetVersion::V3),
     );
 
     assert_eq!(
@@ -2072,7 +2072,7 @@ mod tests {
       [change(0), change(1)],
       fee_rate,
       Target::ExactPostage(Amount::from_sat(66_000)),
-      Network::Testnet,
+      Network::Testnet(TestnetVersion::V3),
     )
     .build_transaction()
     .unwrap();
@@ -2109,7 +2109,7 @@ mod tests {
       [change(0), change(1)],
       FeeRate::try_from(1.0).unwrap(),
       Target::Value(Amount::from_sat(10_000)),
-      Network::Testnet,
+      Network::Testnet(TestnetVersion::V3),
     );
 
     assert_eq!(
@@ -2136,7 +2136,7 @@ mod tests {
       [change(0), change(1)],
       FeeRate::try_from(1.0).unwrap(),
       Target::Value(Amount::from_sat(10_000)),
-      Network::Testnet,
+      Network::Testnet(TestnetVersion::V3),
     );
 
     assert_eq!(
@@ -2162,7 +2162,7 @@ mod tests {
       [change(0), change(1)],
       FeeRate::try_from(1.0).unwrap(),
       Target::Value(Amount::from_sat(10_000)),
-      Network::Testnet,
+      Network::Testnet(TestnetVersion::V3),
     );
 
     assert_eq!(
@@ -2188,7 +2188,7 @@ mod tests {
       [change(0), change(1)],
       FeeRate::try_from(1.0).unwrap(),
       Target::Value(Amount::from_sat(10_000)),
-      Network::Testnet,
+      Network::Testnet(TestnetVersion::V3),
     );
 
     assert_eq!(
